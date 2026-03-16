@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\2021655\\auth-service\\src\\AuthService.Api\\AuthService.Api.csproj": {}
+    "/home/j_craxker/GitHub/auth-service/src/AuthService.Api/AuthService.Api.csproj": {}
   },
   "projects": {
-    "C:\\2021655\\auth-service\\src\\AuthService.Api\\AuthService.Api.csproj": {
+    "/home/j_craxker/GitHub/auth-service/src/AuthService.Api/AuthService.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\2021655\\auth-service\\src\\AuthService.Api\\AuthService.Api.csproj",
+        "projectUniqueName": "/home/j_craxker/GitHub/auth-service/src/AuthService.Api/AuthService.Api.csproj",
         "projectName": "AuthService.Api",
-        "projectPath": "C:\\2021655\\auth-service\\src\\AuthService.Api\\AuthService.Api.csproj",
-        "packagesPath": "C:\\Users\\Informatica\\.nuget\\packages\\",
-        "outputPath": "C:\\2021655\\auth-service\\src\\AuthService.Api\\obj\\",
+        "projectPath": "/home/j_craxker/GitHub/auth-service/src/AuthService.Api/AuthService.Api.csproj",
+        "packagesPath": "/home/j_craxker/.nuget/packages/",
+        "outputPath": "/home/j_craxker/GitHub/auth-service/src/AuthService.Api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Informatica\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/j_craxker/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -26,11 +26,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\2021655\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj": {
-                "projectPath": "C:\\2021655\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj"
+              "/home/j_craxker/GitHub/auth-service/src/AuthService.Application/AuthService.Application.csproj": {
+                "projectPath": "/home/j_craxker/GitHub/auth-service/src/AuthService.Application/AuthService.Application.csproj"
               },
-              "C:\\2021655\\auth-service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj": {
-                "projectPath": "C:\\2021655\\auth-service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj"
+              "/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/AuthService.Domain.csproj": {
+                "projectPath": "/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/AuthService.Domain.csproj"
+              },
+              "/home/j_craxker/GitHub/auth-service/src/AuthService.Persistence/AuthService.Persistence.csproj": {
+                "projectPath": "/home/j_craxker/GitHub/auth-service/src/AuthService.Persistence/AuthService.Persistence.csproj"
               }
             }
           }
@@ -44,7 +47,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -58,9 +62,21 @@
               "target": "Package",
               "version": "[8.0.22, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
             "NetEscapades.AspNetCore.SecurityHeaders": {
               "target": "Package",
               "version": "[1.2.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.2, )"
             },
             "Serilog.AspNetCore": {
               "target": "Package",
@@ -68,7 +84,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[9.0.4, )"
+              "version": "[6.6.2, )"
             }
           },
           "imports": [
@@ -82,6 +98,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.24, 8.0.24]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[8.0.24, 8.0.24]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.24, 8.0.24]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -90,21 +120,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\2021655\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj": {
+    "/home/j_craxker/GitHub/auth-service/src/AuthService.Application/AuthService.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\2021655\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj",
+        "projectUniqueName": "/home/j_craxker/GitHub/auth-service/src/AuthService.Application/AuthService.Application.csproj",
         "projectName": "AuthService.Application",
-        "projectPath": "C:\\2021655\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj",
-        "packagesPath": "C:\\Users\\Informatica\\.nuget\\packages\\",
-        "outputPath": "C:\\2021655\\auth-service\\src\\AuthService.Application\\obj\\",
+        "projectPath": "/home/j_craxker/GitHub/auth-service/src/AuthService.Application/AuthService.Application.csproj",
+        "packagesPath": "/home/j_craxker/.nuget/packages/",
+        "outputPath": "/home/j_craxker/GitHub/auth-service/src/AuthService.Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Informatica\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/j_craxker/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -116,8 +146,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\2021655\\auth-service\\src\\AuthService.Domain\\AuthService.Domain.csproj": {
-                "projectPath": "C:\\2021655\\auth-service\\src\\AuthService.Domain\\AuthService.Domain.csproj"
+              "/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/AuthService.Domain.csproj": {
+                "projectPath": "/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/AuthService.Domain.csproj"
               }
             }
           }
@@ -131,11 +161,34 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[12.1.1, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.15.0, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[10.0.3, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.3, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.15.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -147,26 +200,36 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.24, 8.0.24]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.24, 8.0.24]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\2021655\\auth-service\\src\\AuthService.Domain\\AuthService.Domain.csproj": {
+    "/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/AuthService.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\2021655\\auth-service\\src\\AuthService.Domain\\AuthService.Domain.csproj",
+        "projectUniqueName": "/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/AuthService.Domain.csproj",
         "projectName": "AuthService.Domain",
-        "projectPath": "C:\\2021655\\auth-service\\src\\AuthService.Domain\\AuthService.Domain.csproj",
-        "packagesPath": "C:\\Users\\Informatica\\.nuget\\packages\\",
-        "outputPath": "C:\\2021655\\auth-service\\src\\AuthService.Domain\\obj\\",
+        "projectPath": "/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/AuthService.Domain.csproj",
+        "packagesPath": "/home/j_craxker/.nuget/packages/",
+        "outputPath": "/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Informatica\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/j_craxker/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -189,12 +252,17 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "EFCore.NamingConventions": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "System.ComponentModel.Annotations": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -211,26 +279,36 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.24, 8.0.24]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.24, 8.0.24]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\2021655\\auth-service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj": {
+    "/home/j_craxker/GitHub/auth-service/src/AuthService.Persistence/AuthService.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\2021655\\auth-service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj",
+        "projectUniqueName": "/home/j_craxker/GitHub/auth-service/src/AuthService.Persistence/AuthService.Persistence.csproj",
         "projectName": "AuthService.Persistence",
-        "projectPath": "C:\\2021655\\auth-service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj",
-        "packagesPath": "C:\\Users\\Informatica\\.nuget\\packages\\",
-        "outputPath": "C:\\2021655\\auth-service\\src\\AuthService.Persistence\\obj\\",
+        "projectPath": "/home/j_craxker/GitHub/auth-service/src/AuthService.Persistence/AuthService.Persistence.csproj",
+        "packagesPath": "/home/j_craxker/.nuget/packages/",
+        "outputPath": "/home/j_craxker/GitHub/auth-service/src/AuthService.Persistence/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Informatica\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/j_craxker/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -242,8 +320,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\2021655\\auth-service\\src\\AuthService.Domain\\AuthService.Domain.csproj": {
-                "projectPath": "C:\\2021655\\auth-service\\src\\AuthService.Domain\\AuthService.Domain.csproj"
+              "/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/AuthService.Domain.csproj": {
+                "projectPath": "/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/AuthService.Domain.csproj"
               }
             }
           }
@@ -257,17 +335,30 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "EFCore.NamingConventions": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.9, )"
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[9.0.2, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
@@ -285,12 +376,22 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.24, 8.0.24]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.24, 8.0.24]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

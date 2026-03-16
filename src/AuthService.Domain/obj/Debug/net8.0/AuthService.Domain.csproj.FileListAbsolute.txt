@@ -1,0 +1,26 @@
+C:/2024227/Bimestre 1/auth_service/src/AuthService.Domain/obj/Debug/net8.0/AuthService.Domain.csproj.AssemblyReference.cache
+C:/2024227/Bimestre 1/auth_service/src/AuthService.Domain/obj/Debug/net8.0/AuthService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:/2024227/Bimestre 1/auth_service/src/AuthService.Domain/obj/Debug/net8.0/AuthService.Domain.AssemblyInfoInputs.cache
+C:/2024227/Bimestre 1/auth_service/src/AuthService.Domain/obj/Debug/net8.0/AuthService.Domain.AssemblyInfo.cs
+C:/2024227/Bimestre 1/auth_service/src/AuthService.Domain/obj/Debug/net8.0/AuthService.Domain.csproj.CoreCompileInputs.cache
+C:/2024227/Bimestre 1/auth_service/src/AuthService.Domain/obj/Debug/net8.0/AuthService.Domain.sourcelink.json
+C:/2024227/Bimestre 1/auth_service/src/AuthService.Domain/bin/Debug/net8.0/AuthService.Domain.deps.json
+C:/2024227/Bimestre 1/auth_service/src/AuthService.Domain/bin/Debug/net8.0/AuthService.Domain.dll
+C:/2024227/Bimestre 1/auth_service/src/AuthService.Domain/bin/Debug/net8.0/AuthService.Domain.pdb
+C:/2024227/Bimestre 1/auth_service/src/AuthService.Domain/obj/Debug/net8.0/AuthService.Domain.dll
+C:/2024227/Bimestre 1/auth_service/src/AuthService.Domain/obj/Debug/net8.0/refint/AuthService.Domain.dll
+C:/2024227/Bimestre 1/auth_service/src/AuthService.Domain/obj/Debug/net8.0/AuthService.Domain.pdb
+C:/2024227/Bimestre 1/auth_service/src/AuthService.Domain/obj/Debug/net8.0/ref/AuthService.Domain.dll
+/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/bin/Debug/net8.0/AuthService.Domain.deps.json
+/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/bin/Debug/net8.0/AuthService.Domain.dll
+/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/bin/Debug/net8.0/AuthService.Domain.pdb
+/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/obj/Debug/net8.0/AuthService.Domain.csproj.AssemblyReference.cache
+/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/obj/Debug/net8.0/AuthService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/obj/Debug/net8.0/AuthService.Domain.AssemblyInfoInputs.cache
+/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/obj/Debug/net8.0/AuthService.Domain.AssemblyInfo.cs
+/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/obj/Debug/net8.0/AuthService.Domain.csproj.CoreCompileInputs.cache
+/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/obj/Debug/net8.0/AuthService.Domain.sourcelink.json
+/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/obj/Debug/net8.0/AuthService.Domain.dll
+/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/obj/Debug/net8.0/refint/AuthService.Domain.dll
+/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/obj/Debug/net8.0/AuthService.Domain.pdb
+/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/obj/Debug/net8.0/ref/AuthService.Domain.dll

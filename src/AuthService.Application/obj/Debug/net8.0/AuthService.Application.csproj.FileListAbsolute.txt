@@ -1,0 +1,16 @@
+/home/j_craxker/GitHub/auth-service/src/AuthService.Application/bin/Debug/net8.0/AuthService.Application.deps.json
+/home/j_craxker/GitHub/auth-service/src/AuthService.Application/bin/Debug/net8.0/AuthService.Application.dll
+/home/j_craxker/GitHub/auth-service/src/AuthService.Application/bin/Debug/net8.0/AuthService.Application.pdb
+/home/j_craxker/GitHub/auth-service/src/AuthService.Application/bin/Debug/net8.0/AuthService.Domain.dll
+/home/j_craxker/GitHub/auth-service/src/AuthService.Application/bin/Debug/net8.0/AuthService.Domain.pdb
+/home/j_craxker/GitHub/auth-service/src/AuthService.Application/obj/Debug/net8.0/AuthService.Application.csproj.AssemblyReference.cache
+/home/j_craxker/GitHub/auth-service/src/AuthService.Application/obj/Debug/net8.0/AuthService.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/j_craxker/GitHub/auth-service/src/AuthService.Application/obj/Debug/net8.0/AuthService.Application.AssemblyInfoInputs.cache
+/home/j_craxker/GitHub/auth-service/src/AuthService.Application/obj/Debug/net8.0/AuthService.Application.AssemblyInfo.cs
+/home/j_craxker/GitHub/auth-service/src/AuthService.Application/obj/Debug/net8.0/AuthService.Application.csproj.CoreCompileInputs.cache
+/home/j_craxker/GitHub/auth-service/src/AuthService.Application/obj/Debug/net8.0/AuthService.Application.sourcelink.json
+/home/j_craxker/GitHub/auth-service/src/AuthService.Application/obj/Debug/net8.0/AuthServ.67992DEE.Up2Date
+/home/j_craxker/GitHub/auth-service/src/AuthService.Application/obj/Debug/net8.0/AuthService.Application.dll
+/home/j_craxker/GitHub/auth-service/src/AuthService.Application/obj/Debug/net8.0/refint/AuthService.Application.dll
+/home/j_craxker/GitHub/auth-service/src/AuthService.Application/obj/Debug/net8.0/AuthService.Application.pdb
+/home/j_craxker/GitHub/auth-service/src/AuthService.Application/obj/Debug/net8.0/ref/AuthService.Application.dll
