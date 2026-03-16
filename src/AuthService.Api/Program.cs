@@ -1,54 +1,165 @@
+using AuthService.Api.Extensions;
+using AuthService.Api.Middlewares;
+using AuthService.Api.ModelBinders;
 using AuthService.Persistence.Data;
-using AuthService.Api.Extensions; 
-using Microsoft.EntityFrameworkCore;
+using NetEscapades.AspNetCore.SecurityHeaders.Infrastructure;
+using Serilog;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Hosting.Server.Features;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+// CONFIGURACIÓN
+// FIX: Bypass SSL (Cloudinary, etc.)
+System.Net.ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
+
+
+// Configura Serilog como el motor de registro (logging) principal de tu aplicación
+// reemplazando al sistema por defecto de .NET.
+builder.Host.UseSerilog((context, services, loggerConfiguration) =>
+    loggerConfiguration
+        .ReadFrom.Configuration(context.Configuration)
+        .ReadFrom.Services(services));
+
+
+// Integra la configuración de FileDataModelBinderProvider.cs
+builder.Services.AddControllers(options =>
+{
+    // Agregar el model binder para IFileData
+    options.ModelBinderProviders.Insert(0, new FileDataModelBinderProvider());
+})
+.AddJsonOptions(o =>
+{
+    // Estandarizar las respuestas en camelCase para coincidir con auth-node
+    o.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
+});
+
+
+// CONFIGURACIÓN DE SERVICIOS POR MEDIO DE MÉTODOS DE EXTENSIÓN
+builder.Services.AddApiDocumentation();
+builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddJwtAuthentication(builder.Configuration);
+builder.Services.AddRateLimitingPolicies();
+
+
+// INTEGRAR SERVICIOS DE SEGURIDAD
+builder.Services.AddSecurityPolicies(builder.Configuration);
+builder.Services.AddSecurityOptions();
+
+
+// .....................................................
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+// .....................................................
 
-// CONFIGURACION DE RUTAS
-builder.Services.AddControllers();
 
-// CONFIGURACION DE SERVICIOS
-builder.Services.AddApplicaionServices(builder.Configuration);
 
-var app = builder.Build();
+var app = builder.Build(); 
 
-// Configure the HTTP request pipeline.
+
+// CONFIGURACIÓN DE HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// Add Serilog request logging
+app.UseSerilogRequestLogging();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+// Add Security Headers using NetEscapades package
+app.UseSecurityHeaders(policies => policies
+    .AddDefaultSecurityHeaders()
+    .RemoveServerHeader()
+    .AddFrameOptionsDeny()
+    .AddXssProtectionBlock()
+    .AddContentTypeOptionsNoSniff()
+    .AddReferrerPolicyStrictOriginWhenCrossOrigin()
+    .AddContentSecurityPolicy(builder =>
+    {
+        builder.AddDefaultSrc().Self();
+        builder.AddScriptSrc().Self().UnsafeInline();
+        builder.AddStyleSrc().Self().UnsafeInline();
+        builder.AddImgSrc().Self().Data();
+        builder.AddFontSrc().Self().Data();
+        builder.AddConnectSrc().Self();
+        builder.AddFrameAncestors().None();
+        builder.AddBaseUri().Self();
+        builder.AddFormAction().Self();
+    })
+    .AddCustomHeader("Permissions-Policy", "geolocation=(), microphone=(), camera=()")
+    .AddCustomHeader("Cache-Control", "no-store, no-cache, must-revalidate, private")
+);
+
+// Global exception handling
+app.UseMiddleware<GlobalExceptionMiddleware>();
+
+
+
+// Core middlewares
+app.UseHttpsRedirection();
+app.UseCors("DefaultCorsPolicy");
+app.UseRateLimiter();
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
 
-// INICIALIZACION DE LA BASE DE DATOS
+// Health check endpoints - both versions for compatibility
+// Standard health check endpoint
+app.MapHealthChecks("/health");
+
+
+// Custom health endpoint to match Node.js response format
+app.MapGet("/health", () =>
+{
+    var response = new
+    {
+        status = "Healthy",
+        timestamp = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+    };
+    return Results.Ok(response);
+});
+
+app.MapHealthChecks("/api/v1/health");
+
+
+
+// Startup log: addresses and health endpoint
+var startupLogger = app.Services.GetRequiredService<ILogger<Program>>();
+app.Lifetime.ApplicationStarted.Register(() =>
+{
+    try
+    {
+        var server = app.Services.GetRequiredService<IServer>();
+        var addressesFeature = server.Features.Get<IServerAddressesFeature>();
+        var addresses = (IEnumerable<string>?)addressesFeature?.Addresses ?? app.Urls;
+
+        if (addresses != null && addresses.Any())
+        {
+            foreach (var addr in addresses)
+            {
+                var health = $"{addr.TrimEnd('/')}/health";
+                startupLogger.LogInformation("AuthService API is running at {Url}. Health endpoint: {HealthUrl}", addr, health);
+            }
+        }
+        else
+        {
+            startupLogger.LogInformation("AuthService API started. Health endpoint: /health");
+        }
+    }
+    catch (Exception ex)
+    {
+        startupLogger.LogWarning(ex, "Failed to determine the listening addresses for startup log");
+    }
+});
+
+
+// Initialize database and seed data
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
@@ -56,29 +167,22 @@ using (var scope = app.Services.CreateScope())
 
     try
     {
-        logger.LogInformation("Iniciando la inicializacion de la base de datos...");
+        logger.LogInformation("Checking database connection...");
 
-        await context.Database.MigrateAsync();
+        // Ensure database is created (similar to Sequelize sync in Node.js)
+        await context.Database.EnsureCreatedAsync();
 
-        logger.LogInformation("MIgracion completada exitosamente");
+        logger.LogInformation("Database ready. Running seed data...");
+        await DataSeeder.SeedAsync(context);
 
-        await DataSeeder.SeedDataAsync(context);
-
-        logger.LogInformation("Datos iniciales cargados exitosamente");
-
-
+        logger.LogInformation("Database initialization completed successfully");
     }
     catch (Exception ex)
     {
-        logger.LogError(ex, "Error al inicializar la base de datos");
-        // Detiene la aplicacion si hay un error al inicializar la base de datos
-        throw;
+        logger.LogError(ex, "An error occurred while initializing the database");
+        throw; // Re-throw to stop the application
     }
 }
 
-await app.RunAsync();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+app.Run();
