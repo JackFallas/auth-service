@@ -23,10 +23,7 @@ public class AuthService(
     IConfiguration configuration,
     ILogger<AuthService> logger) : IAuthService
 {
-	private readonly ICloudinaryService _cloudinaryService = cloudinaryService;
-
-
-	    private readonly ICloudinaryService _cloudinaryService = cloudinaryService;
+    private readonly ICloudinaryService _cloudinaryService = cloudinaryService;
     public async Task<RegisterResponseDto> RegisterAsync(RegisterDto registerDto)
     {
         // Verificar si el email ya existe
@@ -52,8 +49,7 @@ public class AuthService(
             if (!isValid)
             {
                 logger.LogWarning($"File validation failed: {errorMessage}");
-                throw new BusinessExcepti
-                on(ErrorCodes.INVALID_FILE_FORMAT, errorMessage!);
+                throw new BusinessException(ErrorCodes.INVALID_FILE_FORMAT, errorMessage!);
             }
 
             try
@@ -250,8 +246,8 @@ public class AuthService(
 
         user.UserEmail.EmailVerified = true;
         user.Status = true;
-        user.UserEmail.EmailVerificationToken = null;
-        user.UserEmail.EmailVerificationTokenExpiry = null;
+        user.UserEmail.EmailVerificationToken = string.Empty;
+        user.UserEmail.EmailVerificationTokenExpiry = default;
 
         await userRepository.UpdateAsync(user);
 
@@ -387,21 +383,21 @@ public class AuthService(
 
     public async Task<EmailResponseDto> ResetPasswordAsync(ResetPasswordDto resetPasswordDto)
     {
-        var user = await userRepository.GetByPasswordResetTokenAsync(resetPasswordDto.Token);
+        var user = await userRepository.GetByPasswordResetTokenAsync(resetPasswordDto.ResetToken);
         if (user == null || user.UserPasswordReset == null)
         {
             return new EmailResponseDto
             {
                 Success = false,
                 Message = "Token de reset inválido o expirado",
-                Data = new { token = resetPasswordDto.Token, reset = false }
+                Data = new { token = resetPasswordDto.ResetToken, reset = false }
             };
         }
 
         // Actualizar contraseña
         user.Password = passwordHashService.HashPassword(resetPasswordDto.NewPassword);
-        user.UserPasswordReset.PasswordResetToken = null;
-        user.UserPasswordReset.PasswordResetTokenExpiry = null;
+        user.UserPasswordReset.PasswordResetToken = string.Empty;
+        user.UserPasswordReset.PasswordResetTokenExpiry = default;
 
         await userRepository.UpdateAsync(user);
 

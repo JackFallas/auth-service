@@ -14,11 +14,11 @@ public class User
 
     [Required(ErrorMessage = "El apellido es obligatorio")]
     [MaxLength(50)]
-    public string SurName { get; set; } = string.Empty;
+    public string Surname { get; set; } = string.Empty;
 
     [Required]
     [MaxLength(50)]
-    public string UserName { get; set; } = string.Empty;
+    public string Username { get; set; } = string.Empty;
 
     [Required]
     [EmailAddress]

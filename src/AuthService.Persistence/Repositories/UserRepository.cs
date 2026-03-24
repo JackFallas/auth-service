@@ -43,7 +43,7 @@ public class UserRepository(ApplicationDbContext context):IUserRepository
        .Include(u => u.UserEmail)
        .Include(u => u.UserRoles)
        .Include(u => u.UserPasswordReset)
-       .FirstOrDefaultAsync(u => EF.Functions.Like(u.UserName, username));
+       .FirstOrDefaultAsync(u => EF.Functions.Like(u.Username, username));
  
        return user ?? throw new InvalidOperationException($"Usuario con username {username} no encontrado");
     }
@@ -99,7 +99,7 @@ public class UserRepository(ApplicationDbContext context):IUserRepository
     public async Task<bool> ExistsByUsernameAsync(string username)
     {
         return await _context.Users
-       .AnyAsync(u => EF.Functions.Like(u.UserName, username));
+       .AnyAsync(u => EF.Functions.Like(u.Username, username));
     }
     public async Task UpdateUserRoleAsync(string userId, string roleId)
     {

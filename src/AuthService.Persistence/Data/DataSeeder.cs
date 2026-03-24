@@ -32,8 +32,8 @@ public static class DataSeeder
                 {
                     Id = userId,
                     Name = "Admin",
-                    SurName = "User",     
-                    UserName = "admin",   
+                    Surname = "User",
+                    Username = "admin",
                     Email = "admin@ksports.local",
                     Password = new string('x', 255), // Cumple con tu MinLength(255)
                     Status = true,

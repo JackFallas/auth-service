@@ -15,7 +15,7 @@ public class EmailTestController : ControllerBase
     }
  
     [HttpPost("send-welcome")]
-public async Task<IActionResult> TestWelcome([FromQuery] string email, [FromQuery] string? name)    {
+public async Task<IActionResult> TestWelcome([FromQuery] string email, [FromQuery] string name)    {
         await _emailService.SendWelcomeEmailAsync(email, name);
         return Ok(new { message = $"¡Éxito! Correo enviado a {email}" });
     }

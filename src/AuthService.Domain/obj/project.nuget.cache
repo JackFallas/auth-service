@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RoWS8HL6UjY=",
+  "dgSpecHash": "8GlX4QhqPhw=",
   "success": true,
   "projectFilePath": "/home/j_craxker/GitHub/auth-service/src/AuthService.Domain/AuthService.Domain.csproj",
   "expectedPackageFiles": [
@@ -20,8 +20,7 @@
     "/home/j_craxker/.nuget/packages/microsoft.extensions.primitives/9.0.0/microsoft.extensions.primitives.9.0.0.nupkg.sha512",
     "/home/j_craxker/.nuget/packages/system.componentmodel.annotations/5.0.0/system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "/home/j_craxker/.nuget/packages/system.diagnostics.diagnosticsource/9.0.0/system.diagnostics.diagnosticsource.9.0.0.nupkg.sha512",
-    "/home/j_craxker/.nuget/packages/microsoft.netcore.app.ref/8.0.24/microsoft.netcore.app.ref.8.0.24.nupkg.sha512",
-    "/home/j_craxker/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.24/microsoft.aspnetcore.app.ref.8.0.24.nupkg.sha512"
+    "/home/j_craxker/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.25/microsoft.aspnetcore.app.ref.8.0.25.nupkg.sha512"
   ],
   "logs": []
 }

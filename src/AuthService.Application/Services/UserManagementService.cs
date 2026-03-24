@@ -20,7 +20,8 @@ public class UserManagementService(IUserRepository users, IRoleRepository roles,
             throw new InvalidOperationException($"Role not allowed. Use {RoleConstants.ADMIN_ROLE} or {RoleConstants.USER_ROLE}");
 
         // Cargar al usuario con roles
-        var user = await users.GetByIdAsync(userId);
+        var user = await users.GetByIdAsync(userId)
+                       ?? throw new InvalidOperationException($"User {userId} not found");
 
         // If demoting an admin, prevent removing last admin
         var isUserAdmin = user.UserRoles.Any(r => r.Role.Name == RoleConstants.ADMIN_ROLE);
@@ -42,7 +43,8 @@ public class UserManagementService(IUserRepository users, IRoleRepository roles,
         await users.UpdateUserRoleAsync(userId, role.Id);
 
         // Reload user with updated roles
-        user = await users.GetByIdAsync(userId);
+        user = await users.GetByIdAsync(userId)
+                   ?? throw new InvalidOperationException($"User {userId} not found");
 
         // Map to response
         return new UserResponseDto

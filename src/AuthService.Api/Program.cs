@@ -173,7 +173,7 @@ using (var scope = app.Services.CreateScope())
         await context.Database.EnsureCreatedAsync();
 
         logger.LogInformation("Database ready. Running seed data...");
-        await DataSeeder.SeedAsync(context);
+        await DataSeeder.SeedDataAsync(context);
 
         logger.LogInformation("Database initialization completed successfully");
     }
